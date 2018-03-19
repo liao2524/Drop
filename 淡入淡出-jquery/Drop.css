@@ -4,7 +4,6 @@
 	text-decoration: none;
 }
 body{
-	background-color: #222;
 	padding: 150px 0 0 150px;
 	display: flex;
 	flex-direction: row;
@@ -14,10 +13,7 @@ a{
 	padding: 0 0 0 40px;
 	display: block;
 	line-height: 65px;
-	background-color: #75f;
-	/*width: 195px;
-	height: 65px;*/
-	/*margin: 0 5px 5px 0;*/
+	background-color: #4682B4;
 	border-radius: 10px;
 }
 .item{
@@ -28,7 +24,7 @@ a{
 	border-radius: 10px;
 }
 a:hover{
-	background-color: #4682B4;
+	background-color: #75f;
 }
 .bg{
 	background-image: url(plus19.png);

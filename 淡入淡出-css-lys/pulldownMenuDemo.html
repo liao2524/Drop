@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pulldown menu demo</title>
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+			
+		nav {
+			margin-top: 40px;
+			margin-left: 50px;
+		}
+		nav menuitem{
+			position: relative;
+			display: block;
+		}
+		nav menuitem > menu{
+			position: absolute;			
+		}
+		
+		.first-menu{
+			display: flex;
+		}
+		
+		nav a{
+			display: block;
+			text-decoration: none;
+			white-space: nowrap;
+			background: #75f;
+			color: #fff;
+			min-width: 190px;
+			transition: background 0.5s, color 0.5s, transform 0.5s;
+			margin: 0px 6px 6px 0px;
+			padding: 20px 40px;
+			box-sizing: border-box;
+			box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+			border-radius: 3px;
+			position: relative;
+		}
+		nav a:hover:before{
+			content: '';
+			left: 0px;
+			top: 0px;
+			background: rgba(0, 0, 0, 0.2);
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
+		
+		.vertical-item-container menu{
+			/*目的如果标签处在透明状态，不会捕捉到鼠标悬停事件*/
+			pointer-events: none;
+		}
+		.vertical-item-container > menu{
+			transition: opacity 0.6s, transform 0.6s;
+			transform: translateY(20%);
+			opacity: 0;
+			/*改成display:none 方式，动画的效果会消失*/
+			/*display: none;*/
+		}
+		
+		.vertical-item-container:hover > menu{
+			opacity: 1;
+			/*display: block;*/
+			transform: translateY(0%);
+			pointer-events: initial;
+		}
+		.horizotal-item-container>menu{
+			transform: translateX(100%);
+			top: 0px;
+			right: 0px;
+		}
+		
+		.horizotal-item-container>menu{
+			opacity: 0;
+			transform: translateX(120%) translateY(0%);
+			transition: opacity 0.6s, transform 0.2s;
+		}
+		
+		.horizotal-item-container:hover>menu{
+			opacity: 1;
+			transform: translateX(100%) translateY(0%);
+			pointer-events: initial;
+		}
+		
+		.change-bg a{
+			/*display: block;*/
+			display: none;
+			box-sizing: border-box;
+			text-decoration: none;
+			background: #75f;
+			color: #fff;
+			width: 190px;
+			padding: 20px 40px;
+			box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+			border-radius: 3px;
+			transition: background 0.5s, color 0.5s, transform 0.5s;
+			position: relative;
+		}
+		
+		.change-bg a:hover:before{
+			background: rgba(0, 0, 0, .2);
+			content: '';
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<nav>
+			<menu class="first-menu">
+				<menuitem class='vertical-item-container'>
+					<a href="">drop</a>
+					<menu>
+						<menuitem><a href="">about</a></menuitem>
+						<menuitem class='horizotal-item-container'>
+							<a href="">setting</a>
+							<menu>
+								<menuitem><a href="">Test</a></menuitem>
+								<menuitem><a href="">Test</a></menuitem>
+								<menuitem class='horizotal-item-container'>
+									<a href="">Test</a>
+									<menu>
+										<menuitem><a href="">Test3</a></menuitem>
+										<menuitem><a href="">Test3</a></menuitem>
+										<menuitem><a href="">Test3</a></menuitem>
+										<menuitem><a href="">Test3</a></menuitem>
+									</menu>
+								</menuitem>
+								<menuitem><a href="">Test</a></menuitem>
+							</menu>
+						</menuitem>
+						<menuitem><a href="">help</a></menuitem>
+						<menuitem>
+							<a href="">more</a>
+						</menuitem>
+					</menu>
+				</menuitem>
+				<menuitem><a href="">no drop</a></menuitem>
+			</menu>
+		</nav>
+	</div>
+
+	<!-- 简单button 变色demo -->
+	<div class="change-bg">
+		<a href="">button</a>
+	</div>
+
+
+</body>
+</html>
